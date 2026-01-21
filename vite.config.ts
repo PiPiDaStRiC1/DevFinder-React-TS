@@ -6,7 +6,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [svgr(), react(), tailwindcss()],
-  base: '/Github-Searching-React-TS/',
+  base: '/DevFinder-React-TS/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

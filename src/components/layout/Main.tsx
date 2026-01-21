@@ -12,7 +12,7 @@ export const Main = () => {
     };
 
     return (
-        <main className="min-h-screen max-w-2xl flex flex-col gap-10 mx-auto px-8">
+        <main className="min-h-[calc(100vh - 4rem)] max-w-2xl flex flex-col gap-10 mx-auto px-8">
             <SearchInput onSearch={handleSearch} value={username}/>
             <InfoCard username={username}/>
         </main>

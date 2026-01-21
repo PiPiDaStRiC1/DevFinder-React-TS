@@ -42,21 +42,21 @@ export const InfoCard = ({username}: InfoCardProps) => {
 
     return (
         <div className="bg-[var(--card-color)] text-[var(--input-text-color)] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
-            <div className="p-6">
-                <div className="flex items-start gap-4">
-                    <div className='relative'>
+            <div className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                    <div className='relative shrink-0'>
                         {isAvatarLoading && (
-                            <div className="absolute w-20 h-20 bg-[var(--card-loading-color)] rounded-full animate-pulse" />
+                            <div className="absolute w-20 h-20 sm:w-24 sm:h-24 bg-[var(--card-loading-color)] rounded-full animate-pulse" />
                         )}
                         <img 
                             src={data.avatar_url} 
                             alt={data.login} 
-                            className="w-20 h-20 rounded-full ring-2 ring-gray-100"
+                            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full ring-2 ring-gray-100"
                             onLoad={() => setIsAvatarLoading(false)}
                         />
                     </div>
-                    <div className="flex-1 min-w-0">
-                        <h2 className="text-2xl font-bold truncate">
+                    <div className="flex-1 min-w-0 text-center sm:text-left">
+                        <h2 className="text-xl sm:text-2xl font-bold truncate">
                             {data.name || data.login}
                         </h2>
                         <a 
@@ -67,33 +67,36 @@ export const InfoCard = ({username}: InfoCardProps) => {
                         >
                             @{data.login}
                         </a>
+                        <p className="text-xs mt-2 sm:hidden">
+                            Joined {new Date(data.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+                        </p>
                     </div>
-                    <p className="text-xs">
+                    <p className="hidden sm:block text-xs">
                         Joined {new Date(data.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </p>
                 </div>
                 {data.bio && (
-                    <p className="mt-4 leading-relaxed">{data.bio}</p>
+                    <p className="mt-4 leading-relaxed text-sm sm:text-base text-center sm:text-left">{data.bio}</p>
                 )}
             </div>
 
-            <div className="p-6">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                    <div className="bg-[var(--card-info-color)] rounded-lg p-3 hover:bg-[var(--card-info-hover-color)] transition-colors">
-                        <div className="text-2xl font-bold text-[var(--card-info-text-color)]">{data.public_repos}</div>
-                        <div className="text-xs text-gray-600 mt-1">Repositories</div>
+            <div className="p-4 sm:p-6">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                    <div className="bg-[var(--card-info-color)] rounded-lg p-2 sm:p-3 hover:bg-[var(--card-info-hover-color)] transition-colors">
+                        <div className="text-lg sm:text-2xl font-bold text-[var(--card-info-text-color)]">{data.public_repos}</div>
+                        <div className="text-[10px] sm:text-xs text-gray-600 mt-1">Repos</div>
                     </div>
-                    <div className="bg-[var(--card-info-color)] rounded-lg p-3 hover:bg-[var(--card-info-hover-color)] transition-colors">
-                        <div className="text-2xl font-bold text-[var(--card-info-text-color)]">{data.followers}</div>
-                        <div className="text-xs text-gray-600 mt-1">Followers</div>
+                    <div className="bg-[var(--card-info-color)] rounded-lg p-2 sm:p-3 hover:bg-[var(--card-info-hover-color)] transition-colors">
+                        <div className="text-lg sm:text-2xl font-bold text-[var(--card-info-text-color)]">{data.followers}</div>
+                        <div className="text-[10px] sm:text-xs text-gray-600 mt-1">Followers</div>
                     </div>
-                    <div className="bg-[var(--card-info-color)] rounded-lg p-3 hover:bg-[var(--card-info-hover-color)] transition-colors">
-                        <div className="text-2xl font-bold text-[var(--card-info-text-color)]">{data.following}</div>
-                        <div className="text-xs text-gray-600 mt-1">Following</div>
+                    <div className="bg-[var(--card-info-color)] rounded-lg p-2 sm:p-3 hover:bg-[var(--card-info-hover-color)] transition-colors">
+                        <div className="text-lg sm:text-2xl font-bold text-[var(--card-info-text-color)]">{data.following}</div>
+                        <div className="text-[10px] sm:text-xs text-gray-600 mt-1">Following</div>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 items-center w-full mt-4 space-y-2 text-sm text-gray-600">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-2 w-full mt-4 text-xs sm:text-sm text-gray-600">
                     <div className="flex items-center text-[var(--input-text-color)] justify-center gap-2">
                         <img src={CompanyIcon} alt="company-icon" />
                         <span>{data.company ? data.company : "Not available"}</span>
