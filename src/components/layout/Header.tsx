@@ -24,7 +24,7 @@ export const Header = () => {
     }, [isDark])
 
     return (
-        <header className="flex px-8 justify-between h-40 items-center max-w-2xl mx-auto">
+        <header className="flex px-8 justify-between h-28 items-center max-w-2xl mx-auto">
             <h1 className="text-2xl font-bold text-[var(--header-color)]">DevFinder</h1>
             <button 
                 className="flex gap-2 cursor-pointer"

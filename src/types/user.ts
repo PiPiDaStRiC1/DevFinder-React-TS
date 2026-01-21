@@ -6,7 +6,7 @@ export interface GHUser {
     company: string | null,
     location: string | null,
     twitter_username: string | null,
-    blog: string | null, // ← может быть null
+    blog: string | null,
     public_repos: number,
     bio: string | null,
     followers: number,
