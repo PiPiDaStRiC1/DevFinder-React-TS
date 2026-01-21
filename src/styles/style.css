@@ -1,0 +1,60 @@
+@import  'tailwindcss';
+
+:root {
+  --main-color: #0079FF;
+  --main-color-hover: #60ABFF;
+
+  --white: #FFF;
+
+  --gray-50: #F6F8FF;
+  --gray-75: #e1e1e4;
+  --gray-100: #697C9A;
+  --gray-200: #4B6A9B;
+  --gray-300: #2B3442;
+  --gray-400: #1E2A47;
+  --gray-500: #141D2F;
+
+  --red-400: oklch(70.4% 0.191 22.216);
+  --red-700: oklch(50.5% 0.213 27.518)
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--gray-50);
+}
+
+body[data-theme='dark'] {
+  background-color: var(--gray-500);
+  --header-color: var(--gray-50);
+  --switcher-color: var(--gray-50);
+  --card-color: var(--gray-400);
+  --input-color: var(--gray-400);
+  --input-text-color: var(--gray-100);
+  --card-info-color: var(--gray-500);
+  --card-info-hover-color: var(--gray-500);
+  --card-info-text-color: var(--gray-50);
+  --card-loading-color: var(--gray-500);
+  --card-error-color: var(--red-400);
+}
+
+body[data-theme='light'] {
+  background-color: var(--gray-50);
+  --header-color: var(--gray-500);
+  --switcher-color: var(--gray-200);
+  --card-color: var(--gray-50);
+  --input-color: var(--gray-50);
+  --input-text-color: var(--gray-500);
+  --card-info-color: var(--gray-50);
+  --card-info-hover-color: var(--gray-75);
+  --card-info-text-color: var(--gray-500);
+  --card-loading-color: var(--gray-75);
+  --card-error-color: var(--red-700);
+}
+
+
+a {
+  font-family: 'Space Mono', monospace;
+}
