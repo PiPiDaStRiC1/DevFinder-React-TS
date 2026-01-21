@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_GITHUB_API_KEY;
 export const getUsers = async (user: string, signal: AbortSignal): Promise<GHUser> => {
     const response = await fetch(`https://api.github.com/users/${user}`, {
         headers: {
-            'Authorization': `token ${API_KEY}`
+            'Authorization': API_KEY
         },
         signal: signal
     }); 
